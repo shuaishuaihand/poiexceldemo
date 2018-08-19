@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.agesun.mybatis.dao.EmployeeMapper">
+	<!-- public Employee getEmpById(Integer id); -->
+	<!-- <select id="getEmpById" resultType="com.agesun.mybatis.bean.Employee">
+		select * from employee where id=#{id}
+	</select>
+	
+	public List<Employee> getEmps(); 
+	<select id="getEmps" resultType="com.agesun.mybatis.bean.Employee">
+		select * from employee
+	</select> -->
+	
+	<!-- public Employee getEmpById(Integer id); -->
+	<select id="getEmpById" resultType="com.agesun.mybatis.bean.Employee">
+		select * from employee where id=#{id}
+	</select>
+
+	<!-- 插入execel数据-->
+	<insert id="insertmysql" parameterType="com.agesun.mybatis.util.PageData">
+		insert into employee
+		(lastName,email,gender)
+		VALUES(#{lastName},#{email},#{gender})
+
+	</insert>
+	
+	        
+	<select id="getEmps" resultType="com.agesun.mybatis.bean.Employee">
+		select * from employee
+	</select>
+	
+	
+	    <!--批量保存员工 -->
+	<insert id="addEmp">
+	    insert into employee(lastName,email,gender)
+        values(#{lastName},#{email},#{gender})
+	</insert>
+
+
+</mapper>

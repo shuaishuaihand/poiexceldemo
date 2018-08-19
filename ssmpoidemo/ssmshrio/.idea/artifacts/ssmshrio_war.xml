@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ssmshrio:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="ssm-shrio-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="ssmshrio:war exploded" />
+    </root>
+  </artifact>
+</component>

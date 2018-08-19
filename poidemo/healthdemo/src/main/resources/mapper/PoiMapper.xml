@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hand.hand.mapper.PoiMapper">
+
+
+    <!-- 插入execel数据-->
+    <insert id="insertmysql" parameterType="pd">
+        insert into attend_record
+        (dev_address,p_id,p_name,card_no,classes_id,classes_name,classes_time,
+        <if test="attend_time!=null and attend_time!=''">
+        attend_time,
+        </if>
+        <if test="attend_time==''">
+            attend_time,
+        </if>
+        attend_flag,
+        attend_outcome
+        ,work_time,attend_flag_time)
+        VALUES(#{dev_address},#{p_id},#{p_name},#{card_no},#{classes_id},#{classes_name},#{classes_time},
+        <if test="attend_time!=null and attend_time!=''">
+        #{attend_time},
+        </if>
+        <if test="attend_time==''">
+            null,
+        </if>
+        #{attend_flag},
+        #{attend_outcome}
+        ,#{work_time},#{attend_flag_time})
+    </insert>
+
+    <!--计算是否已经存在样本-->
+    <select id="slectcountperson" resultType="int">
+        SELECT COUNT(id)
+        FROM s_person
+        WHERE person_name=#{pname}
+    </select>
+
+    <!--根据样本名称，查询pid-->
+    <select id="selectpidbyname" resultType="int">
+        SELECT id  FROM s_person WHERE person_name=#{pname}
+    </select>
+
+    <!--根据样本名称，查询cardid-->
+    <select id="selectcardidbyname" resultType="java.lang.String" parameterType="java.lang.String">
+        SELECT card_no  FROM s_person WHERE person_name="吴涛"
+    </select>
+
+    <!--根据班次名称，查询cid-->
+    <select id="selectcidbyname" resultType="int">
+        SELECT classes_id  FROM attend_classes WHERE classes_name=#{cname}
+    </select>
+
+
+</mapper>

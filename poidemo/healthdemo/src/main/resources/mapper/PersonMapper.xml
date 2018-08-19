@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hand.hand.mapper.PersonMapper">
+    <insert id="insertSample">
+        INSERT INTO s_person
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="personName!=null">
+                person_name,
+            </if>
+            <if test="orgId!=null">
+                org_id,
+            </if>
+            <if test="devId!=null">
+                dev_id,
+            </if>
+            <if test="cardNo">
+                card_no,
+            </if>
+            create_time,
+            <if test="photo!=null">
+                photo,
+            </if>
+            state,
+            <if test="address!=null">
+                address,
+            </if>
+            <if test="featureArray!=null">
+                feature_array,
+            </if>
+
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="personName!=null">
+                #{personName},
+            </if>
+            <if test="orgId!=null">
+                #{orgId},
+            </if>
+            <if test="devId!=null">
+                #{devId},
+            </if>
+            <if test="cardNo!=null">
+                #{cardNo},
+            </if>
+            NOW(),
+            <if test="photo!=null">
+                #{photo},
+            </if>
+            0,
+            <if test="address!=null">
+                #{address},
+            </if>
+            <if test="featureArray!=null">
+                #{featureArray},
+            </if>
+        </trim>
+    </insert>
+
+
+</mapper>

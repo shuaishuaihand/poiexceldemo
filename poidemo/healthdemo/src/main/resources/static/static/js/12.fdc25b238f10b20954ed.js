@@ -1,0 +1,2 @@
+webpackJsonp([12],{SyUc:function(e,r,o){var n={"./CreateDoctor.vue":"N71Q","./DoctorTable.vue":"xQPi","./EditDoctor.vue":"0AVS"};function t(e){return o(c(e))}function c(e){var r=n[e];if(!(r+1))throw new Error("Cannot find module '"+e+"'.");return r}t.keys=function(){return Object.keys(n)},t.resolve=c,e.exports=t,t.id="SyUc"}});
+//# sourceMappingURL=12.fdc25b238f10b20954ed.js.map
